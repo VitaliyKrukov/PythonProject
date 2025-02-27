@@ -26,6 +26,6 @@ def mask_account_card(finding_numbers: str) -> str:
 print(mask_account_card('Счет 64686473678894779589'))
 
 
-# def get_date(string_data: str) -> str:
-#     """Функция, которая принимает на вход строку с датой и создает удобный формат для чтения."""
-#     return f"(\"{string_data[8:10]}.{string_data[5:7]}.{string_data[0:4]}\") "
+def get_date(string_data: str) -> str:
+    """Функция, которая принимает на вход строку с датой и создает удобный формат для чтения."""
+    return f"(\"{string_data[8:10]}.{string_data[5:7]}.{string_data[0:4]}\") "
