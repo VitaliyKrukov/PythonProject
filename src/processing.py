@@ -1,9 +1,8 @@
 from typing import Union
 
 
-def filter_by_state(
-    scroll: list[dict[str, Union[int, str]]], meaning: str = "EXECUTED"
-) -> list[dict[str, Union[int, str]]]:
+def filter_by_state(scroll: list[dict[str, Union[int, str]]], meaning: str = "EXECUTED") -> list[
+    dict[str, Union[int, str]]]:
     count_dict = []
     for element in scroll:
         if element["state"] == meaning:
@@ -22,3 +21,11 @@ print(
         "Rety",
     )
 )
+
+
+def sort_by_date(scroll: list[dict[str, Union[int, str]]], direction: bool = True) -> list[
+    dict[str, Union[int, str]]]:
+    sorted_list = sorted(scroll, key=lambda x: x['date'], reverse=direction)
+    return sorted_list
+
+
