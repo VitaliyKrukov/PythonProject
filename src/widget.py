@@ -1,5 +1,4 @@
-from masks import get_mask_account  # Импортируем необходимые функции.
-from masks import get_mask_card_number
+from src.masks import get_mask_account, get_mask_card_number  # Импортируем необходимые функции.
 
 
 def mask_account_card(finding_numbers: str) -> str:  # Пишем функцию, которая будет обрабатывать информацию.
