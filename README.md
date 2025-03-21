@@ -20,8 +20,94 @@
 
 ## Использование:
 
-1. Запишите номер карты или счета, чтобы программа замаскировала его.
-2. Так же программа может отсартировывать списки словарей по датам и ключевым словам.
+## Модуль masks
+Модуль `masks` предоставляет функции для маскировки номеров банковских карт и счетов.
+
+### Примеры использования
+```python
+from src.masks import get_mask_card_number, get_mask_account
+
+# Маскировка номера карты
+card_number = 7000792289606361
+masked_card = get_mask_card_number(card_number)
+print(masked_card)  # Вывод: 7000 79** **** 6361
+
+# Маскировка номера счета
+account_number = 73654108430135874305
+masked_account = get_mask_account(account_number)
+print(masked_account)  # Вывод: **4305
+```
+## Модуль widget
+Модуль `widget` предоставляет функции для работы с банковскими картами и счетами, включая маскировку номеров и преобразование форматов дат.
+
+## Примеры использования
+
+### Маскировка номера карты
+```python
+from src.widget import mask_account_card
+
+card_info = "Visa Platinum 7000792289606361"
+masked_card = mask_account_card(card_info)
+print(masked_card)  # Вывод: Visa Platinum 7000 79** **** 6361
+```
+
+### Преобразование даты
+```python
+from src.widget import get_date
+
+date_string = "2024-03-11T02:26:18.671407"
+formatted_date = get_date(date_string)
+print(formatted_date)  # Вывод: 11.03.2024
+```
+
+## Модуль processing
+
+Модуль предоставляет функции для работы с банковскими операциями:
+
+- `filter_by_state`: фильтрует операции по заданному состоянию.
+- `sort_by_date`: сортирует операции по дате.
+
+### Примеры использования:
+
+```python
+from src.processing import filter_by_state, sort_by_date
+
+operations = [
+    {'id': 41428829, 'state': 'EXECUTED', 'date': '2019-07-03T18:35:29.512364'},
+    {'id': 59402872, 'state': 'CANCELLED', 'date': '2018-09-17T21:27:25.241241'}
+]
+
+# Фильтрация операций с состоянием "EXECUTED"
+executed_operations = filter_by_state(operations)
+
+# Сортировка операций по дате в порядке убывания
+sorted_operations = sort_by_date(operations)
+```
+
+## Модуль generators
+
+Модуль generators предоставляет функции для работы с массивами транзакций. Он включает в себя следующие функции:
+
+- filter_by_currency(transactions, currency): фильтрует транзакции по заданной валюте и возвращает итератор.
+- transaction_descriptions(transactions): генератор, возвращающий описания транзакций.
+- card_number_generator(start, stop): генератор, который выводит номера банковских карт в формате ХХХХ ХХХХ ХХХХ ХХХХ.
+
+### Примеры использования:
+
+```python
+# Пример использования filter_by_currency
+usd_transactions = filter_by_currency(transactions, 'USD')
+for transaction in usd_transactions:
+    print(transaction)
+
+# Пример использования transaction_descriptions
+for description in transaction_descriptions(transactions):
+    print(description)
+
+# Пример использования card_number_generator
+for card in card_number_generator(4000123456789010, 4000123456789015):
+    print(card)
+```
 
 ## Тестирование.
 Этот раздел описывает, как запускать тесты для модуля. Мы используем pytest в качестве фреймворка для тестирования.

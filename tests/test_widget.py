@@ -4,7 +4,10 @@ from src.widget import get_date, mask_account_card
 
 
 def test_mask_account_card():
-    assert mask_account_card("Visa 1234567891234567") == "Visa 1234 56** **** 4567"
+    assert (
+        mask_account_card("Visa 1234567891234567")
+        == "Visa 1234 56** **** 4567"
+    )
 
 
 @pytest.mark.parametrize(
