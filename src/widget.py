@@ -1,8 +1,12 @@
-from src.masks import get_mask_account, get_mask_card_number  # Импортируем необходимые функции.
+from src.masks import (get_mask_account,  # Импортируем необходимые функции.
+                       get_mask_card_number)
 
 
-def mask_account_card(finding_numbers: str) -> str:  # Пишем функцию, которая будет обрабатывать информацию.
-    """Функцию, которая умеет обрабатывать информацию как о картах, так и о счетах."""
+def mask_account_card(
+    finding_numbers: str,
+) -> str:  # Пишем функцию, которая будет обрабатывать информацию.
+    """Функцию, которая умеет обрабатывать
+    информацию как о картах, так и о счетах."""
     if type(finding_numbers) is str:
         string_numbers = ""
         string_letters = ""
@@ -11,7 +15,9 @@ def mask_account_card(finding_numbers: str) -> str:  # Пишем функцию
                 string_numbers += finding
             else:
                 string_letters += finding
-        string_lower = string_letters.lower()  # Пишем условие, которое сортирует на разные функции.
+        string_lower = (
+            string_letters.lower()
+        )  # Пишем условие, которое сортирует на разные функции.
         if "счет" in string_lower and len(string_numbers) == 20:
             return f"{string_letters}{get_mask_account(string_numbers)}"
         elif len(string_numbers) == 16:
@@ -22,8 +28,11 @@ def mask_account_card(finding_numbers: str) -> str:  # Пишем функцию
         return "Введите номер карты или номер счета"
 
 
-def get_date(string_data: str) -> str:  # Пишем функцию, которая форматирует код в удобно читаемый вид.
-    """Функция, которая принимает на вход строку с датой и создает удобный формат для чтения."""
+def get_date(
+    string_data: str,
+) -> str:  # Пишем функцию, которая форматирует код в удобно читаемый вид.
+    """Функция, которая принимает на вход
+    строку с датой и создает удобный формат для чтения."""
     if (
         type(string_data) is str
         and len(string_data) >= 10
