@@ -2,13 +2,6 @@ from src.generators import (card_number_generator, filter_by_currency,
                             transaction_descriptions)
 
 
-def print6(xs):
-    for i, x in enumerate(xs):
-        print(x)
-        if i == 5:
-            break
-
-
 def test_filter_by_currency(generator_transactions):
     filter_test = filter_by_currency(generator_transactions, "USD")
     assert next(filter_test) == {
