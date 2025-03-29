@@ -1,5 +1,5 @@
-from src.masks import (get_mask_account,  # Импортируем необходимые функции.
-                       get_mask_card_number)
+from src.masks import get_mask_account  # Импортируем необходимые функции.
+from src.masks import get_mask_card_number
 
 
 def mask_account_card(
