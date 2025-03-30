@@ -4,8 +4,10 @@ def get_mask_card_number(number_card: str) -> str:
     if type(number_card) is str and len(number_card) == 16:
         text_number = number_card  # преобразуем строку в текст
         mask_numbers = "** ****"  # пишем переменную для маскировки цифр
-        return (f"{text_number[0:4]} {text_number[4:6]}"
-                f"{mask_numbers} {text_number[-4:]}")
+        return (
+            f"{text_number[0:4]} {text_number[4:6]}"
+            f"{mask_numbers} {text_number[-4:]}"
+        )
     else:
         return "Введите 16 цифр номера карты"
 

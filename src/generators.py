@@ -5,7 +5,7 @@ def filter_by_currency(
     transactions: list[dict[str, Union[int, str]]], denomination: str
 ) -> Generator[dict[str, Union[int, str]], None, None]:
     """Функция которая сортирует список соварей
-     на наличие определенного элемента (code)."""
+    на наличие определенного элемента (code)."""
     if (
         type(transactions) is list and type(denomination) is str
     ):  # пишем условие ввода данных
@@ -23,7 +23,7 @@ def transaction_descriptions(
 ) -> Generator[str | int, None, None]:
     if type(transaction) is list:  # пишем условие ввода данных
         """Функция которая сортирует список соварей
-         на наличие определенного ключа (description)."""
+        на наличие определенного ключа (description)."""
         gen_iter = (
             x for x in transaction if "description" in x.keys()
         )  # пишем логику кода
@@ -40,8 +40,10 @@ def card_number_generator(start: int, end: int) -> Generator[str, None, None]:
             # Преобразуем число в строку и дополняем нулями до 16 цифр
             card_number = f"{number:016d}"
             # Форматируем номер карты в виде XXXX XXXX XXXX XXXX
-            formatted_card_number = (f"{card_number[:4]} "
-                                     f"{card_number[4:8]} "
-                                     f"{card_number[8:12]} "
-                                     f"{card_number[12:16]}")
+            formatted_card_number = (
+                f"{card_number[:4]} "
+                f"{card_number[4:8]} "
+                f"{card_number[8:12]} "
+                f"{card_number[12:16]}"
+            )
             yield formatted_card_number
