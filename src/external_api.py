@@ -1,4 +1,3 @@
-import json
 import os
 from typing import Any
 
@@ -6,7 +5,7 @@ import requests
 from dotenv import load_dotenv
 
 
-def return_amount(transaction:dict[Any,Any])-> float:
+def return_amount(transaction: dict[Any, Any]) -> float:
     """Функция отображающая курс валют"""
     curancy = transaction["operationAmount"]["currency"]["code"]
     amount = transaction["operationAmount"]["amount"]

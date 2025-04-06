@@ -123,6 +123,44 @@ def my_function(x, y):
 my_function(1, 2)
 ```
 
+## Модуль utils
+
+Этот модуль содержит функции для работы с JSON-файлами, включая чтение данных о финансовых транзакциях.
+
+### Пример использования:
+```python
+from src.utils import function_accepts_json
+
+transactions = function_accepts_json('data/operations.json')
+print(transactions)
+```
+## Модуль external_api
+
+Этот модуль содержит функции для конвертации валют с использованием внешнего API.
+
+### Пример использования:
+```python
+from src.external_api import return_amount
+
+transaction = {
+    "amount": "100",
+    "currency": "USD"
+}
+
+amount_in_rub = return_amount(transaction)
+print(amount_in_rub)
+```
+## Настройка файла .env
+
+Для работы с внешними API необходимо создать файл `.env` в корне проекта и добавить в него следующие переменные окружения:
+
+```
+API_KEY=ваш_ключ_доступа
+API_URL=https://api.example.com
+```
+
+Убедитесь, что файл `.env` добавлен в `.gitignore`, чтобы избежать случайного попадания конфиденциальной информации в репозиторий.
+
 
 ## Тестирование.
 Этот раздел описывает, как запускать тесты для модуля. Мы используем pytest в качестве фреймворка для тестирования.
