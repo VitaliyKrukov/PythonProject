@@ -153,6 +153,7 @@ def generator_transactions_not_description():
         },
     ]
 
+
 @pytest.fixture
 def file_name():
     return "file"

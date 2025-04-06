@@ -14,10 +14,9 @@ def return_amount(transaction: dict[Any, Any]) -> float:
     else:
         load_dotenv()
         api_key = os.getenv("API_KEY")
-        url = f"https://api.apilayer.com/exchangerates_data/convert?to=RUB&from={curancy}&amount={amount}"
-        headers = {
-            "apikey": api_key
-        }
+        url = (f"https://api.apilayer.com/exchangerates_data/convert"
+               f"?to=RUB&from={curancy}&amount={amount}")
+        headers = {"apikey": api_key}
         try:
             respons = requests.get(url, headers=headers)
         except requests.exceptions.RequestException:
@@ -28,4 +27,4 @@ def return_amount(transaction: dict[Any, Any]) -> float:
                 print("ошибка кода")
                 return 0.0
             info = respons.json()
-            return info["result"]
+            return float(info["result"])

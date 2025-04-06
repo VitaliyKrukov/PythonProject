@@ -1,7 +1,7 @@
 import json
 
 
-def function_accepts_json(file_name):
+def function_accepts_json(file_name: str) -> list:
     """Функция обрабатывающая json файл"""
     try:
         with open(file_name, "r", encoding="utf-8") as file:
