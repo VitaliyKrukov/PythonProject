@@ -70,6 +70,6 @@ def test_function_accepts_json_error(file_name):
         "to": "Счет 64686473678894779589"
     }]
     with open(file_name, "w", encoding="utf-8") as file:
-        json.load(data, file)
-    assert function_accepts_json(data) == []
+        file.write(str(data))
+    assert function_accepts_json(file_name) == []
     os.remove(file_name)
