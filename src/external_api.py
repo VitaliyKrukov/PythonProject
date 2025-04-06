@@ -10,7 +10,7 @@ def return_amount(transaction: dict[Any, Any]) -> float:
     curancy = transaction["operationAmount"]["currency"]["code"]
     amount = transaction["operationAmount"]["amount"]
     if curancy == "RUB":
-        return amount
+        return float(amount)
     else:
         load_dotenv()
         api_key = os.getenv("API_KEY")
