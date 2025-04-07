@@ -2,10 +2,14 @@ import logging
 import os
 
 logger = logging.getLogger("masks")
-file_handler = logging.FileHandler(os.path.join(
-    os.path.dirname(__file__), "..\\logs\\", "masks.log"
-),mode='w', encoding="utf-8")
-file_formatter = logging.Formatter('%(asctime)s %(module)s.%(funcName)s %(levelname)s: %(message)s')
+file_handler = logging.FileHandler(
+    os.path.join(os.path.dirname(__file__), "..\\logs\\", "masks.log"),
+    mode="w",
+    encoding="utf-8",
+)
+file_formatter = logging.Formatter(
+    "%(asctime)s %(module)s.%(funcName)s %(levelname)s: %(message)s"
+)
 file_handler.setFormatter(file_formatter)
 logger.addHandler(file_handler)
 logger.setLevel(logging.DEBUG)
@@ -23,7 +27,7 @@ def get_mask_card_number(number_card: str) -> str:
             f"{mask_numbers} {text_number[-4:]}"
         )
     else:
-        logger.critical(f"Введены не 16 цифр")
+        logger.critical("Введены не 16 цифр")
         return "Введите 16 цифр номера карты"
 
 
@@ -36,5 +40,5 @@ def get_mask_account(account_number: str) -> str:
         logger.info(f"Замаскировал строку {account_number}")
         return f"{mask_numbers_account}{account_number[-4:]}"
     else:
-        logger.critical(f"Введены не 20 цифр")
+        logger.critical("Введены не 20 цифр")
         return "Введите 20 цифр номера счета"
