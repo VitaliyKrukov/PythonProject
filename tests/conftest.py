@@ -152,3 +152,8 @@ def generator_transactions_not_description():
             "to": "Счет 14211924144426031657",
         },
     ]
+
+
+@pytest.fixture
+def file_name():
+    return "file"
