@@ -162,5 +162,4 @@ def file_name():
 
 @pytest.fixture
 def data_frame():
-    return pd.DataFrame({'Yes': [50, 21], 'No': [131, 2]})
-
+    return pd.DataFrame({"Yes": [50, 21], "No": [131, 2]})
