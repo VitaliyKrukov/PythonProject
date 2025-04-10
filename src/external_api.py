@@ -14,8 +14,10 @@ def return_amount(transaction: dict[Any, Any]) -> float:
     else:
         load_dotenv()
         api_key = os.getenv("API_KEY")
-        url = (f"https://api.apilayer.com/exchangerates_data/convert"
-               f"?to=RUB&from={curancy}&amount={amount}")
+        url = (
+            f"https://api.apilayer.com/exchangerates_data/convert"
+            f"?to=RUB&from={curancy}&amount={amount}"
+        )
         headers = {"apikey": api_key}
         try:
             respons = requests.get(url, headers=headers)
