@@ -1,3 +1,4 @@
+import pandas as pd
 import pytest
 
 
@@ -157,3 +158,9 @@ def generator_transactions_not_description():
 @pytest.fixture
 def file_name():
     return "file"
+
+
+@pytest.fixture
+def data_frame():
+    return pd.DataFrame({'Yes': [50, 21], 'No': [131, 2]})
+
