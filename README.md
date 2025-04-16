@@ -161,6 +161,27 @@ API_URL=https://api.example.com
 
 Убедитесь, что файл `.env` добавлен в `.gitignore`, чтобы избежать случайного попадания конфиденциальной информации в репозиторий.
 
+## Модуль file_processing
+
+### Модуль для работы с CSV и Excel файлами
+
+- `read_transactions_from_csv(file_path: str) -> List[Dict]`: Считывает финансовые операции из CSV файла и возвращает список словарей с транзакциями.
+- `read_transactions_from_excel(file_path: str) -> List[Dict]`: Считывает финансовые операции из Excel файла и возвращает список словарей с транзакциями.
+
+### Примеры использования
+
+```python
+from my_module import read_transactions_from_csv, read_transactions_from_excel
+
+# Пример использования функции для CSV
+transactions_csv = read_transactions_from_csv('path/to/transactions.csv')
+print(transactions_csv)
+
+# Пример использования функции для Excel
+transactions_excel = read_transactions_from_excel('path/to/transactions.xlsx')
+print(transactions_excel)
+```
+
 ## Логирование
 Добавлено сохранение логов в файл для модулей masks, utils. Логи сохранены в директории logs в корне проекта.
 
