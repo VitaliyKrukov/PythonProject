@@ -6,6 +6,7 @@ def processing_function_csv(file_path: str) -> list[dict]:
     и обрабатывает в список словарей"""
     try:
         reader = pd.read_csv(file_path, delimiter=";")
+        reader = reader.fillna(value="")
     except FileNotFoundError:
         return []
     except ValueError:
@@ -19,6 +20,7 @@ def processing_function_excel(file_path: str) -> list[dict]:
     и обрабатывает в список словарей"""
     try:
         reader = pd.read_excel(file_path)
+        reader = reader.fillna(value="")
     except FileNotFoundError:
         return []
     except ValueError:

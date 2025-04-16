@@ -44,7 +44,7 @@ def get_date(
         and 0 < int(string_data[0:4])
     ):
 
-        return f'("{string_data[8:10]}.{string_data[5:7]}.{string_data[0:4]}")'
+        return f'{string_data[8:10]}.{string_data[5:7]}.{string_data[0:4]}'
 
     else:
         return "Введите верный формат данных"

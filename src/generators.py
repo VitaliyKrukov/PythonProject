@@ -12,7 +12,7 @@ def filter_by_currency(
         list_code = [
             x
             for x in transactions
-            if x["operationAmount"]["currency"]["code"] == denomination
+            if x["currency_code"] == denomination
         ]  # пишем логику кода
         for element in list_code:
             yield element
