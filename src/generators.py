@@ -10,9 +10,7 @@ def filter_by_currency(
         type(transactions) is list and type(denomination) is str
     ):  # пишем условие ввода данных
         list_code = [
-            x
-            for x in transactions
-            if x["operationAmount"]["currency"]["code"] == denomination
+            x for x in transactions if x["currency_code"] == denomination
         ]  # пишем логику кода
         for element in list_code:
             yield element

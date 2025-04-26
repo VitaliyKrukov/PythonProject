@@ -90,6 +90,23 @@ def generator_transactions():
 
 
 @pytest.fixture
+def generator_transactions_shorts():
+    return [
+        {
+            "id": 594226727,
+            "state": "CANCELED",
+            "date": "2018-09-12T21:27:25.241689",
+            "amount": "67314.70",
+            "currency_name": "руб.",
+            "currency_code": "RUB",
+            "description": "Перевод организации",
+            "from": "Visa Platinum 1246377376343588",
+            "to": "Счет 14211924144426031657",
+        }
+    ]
+
+
+@pytest.fixture
 def generator_transactions_not_description():
     return [
         {

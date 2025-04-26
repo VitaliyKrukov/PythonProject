@@ -1,7 +1,9 @@
 from unittest.mock import patch
 
-from src.file_processing import (processing_function_csv,
-                                 processing_function_excel)
+from src.file_processing import (
+    processing_function_csv,
+    processing_function_excel,
+)
 
 
 @patch("pandas.read_csv")
